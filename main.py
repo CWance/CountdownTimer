@@ -21,14 +21,16 @@ pen.penup()
 pen.hideturtle()
 
 def countdown():
+    flag = True
     #opens a pop up to enter an input
     enter_time = turtle.textinput("Enter the time in seconds: ", "")
     t = int(enter_time)
-    while t:
+    while t >= 0:
         #converts the input to minutes and seconds
         mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
-        if t == 28:
+        if t <= 28 and flag:
+            flag = False
             #changes the color of the timer
             pen.color("red")
             #plays a soundbite when it gets to the time
